@@ -1,0 +1,36 @@
+<odoo>
+    <record id="view_cloud_cti_form" model="ir.ui.view">
+        <field name="name">cloud.cti.form</field>
+        <field name="model">cloud.cti</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="api_key"/>
+                    <field name="phone_number"/>
+                    <field name="iframe_url"/>
+                </group>
+                <footer>
+                    <button string="Initiate Call" type="object" name="initiate_call" class="btn-primary o_form_button_call"/>
+                </footer>
+                <iframe id="cti_iframe" src="https://sf-sandbox.doocti.com/" style="width:100%; height:600px;"></iframe>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_cloud_cti_tree" model="ir.ui.view">
+        <field name="name">cloud.cti.tree</field>
+        <field name="model">cloud.cti</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="phone_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_cloud_cti" name="Cloud CTI" sequence="1"/>
+    <menuitem id="menu_cloud_cti_root" name="CTI Integrations" parent="menu_cloud_cti" sequence="1"/>
+    <menuitem id="menu_cloud_cti_management" name="Manage CTI" parent="menu_cloud_cti_root" action="action_cloud_cti"/>
+</odoo>
+
